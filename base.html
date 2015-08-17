@@ -46,9 +46,14 @@
 
   <script>
 function updateOPMLUrl() {
+  console.log('called updateOPMLUrl');
   var ssUrl = document.getElementById('ss-url').value;
-  var ssKey = ssUrl.split('key=')[1];
-  ssKey = ssKey.split('&')[0];
+  console.log(ssUrl);
+  //var ssKey = ssUrl.split('key=')[1];
+  var ssKey = ssUrl.split('/d/')[1];
+  console.log(ssKey);
+  //ssKey = ssKey.split('&')[0];
+  ssKey = ssKey.split('/pubhtml')[0];
   var opmlUrl = 'http://' + window.location.hostname + '/opml?sskey=' + ssKey + '&wsid=od6';
 
   var opmlTitle = document.getElementById('opml-title').value;
@@ -57,9 +62,11 @@ function updateOPMLUrl() {
 }
 
 document.getElementById('ss-url').addEventListener('change', function(event) {
+  console.log('changed URL');
   updateOPMLUrl();
 });
 document.getElementById('opml-title').addEventListener('change', function(event) {
+  console.log('changed id');
   updateOPMLUrl();
 });
  </script>
