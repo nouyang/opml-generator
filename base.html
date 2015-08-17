@@ -54,7 +54,9 @@ function updateOPMLUrl() {
   console.log(ssKey);
   //ssKey = ssKey.split('&')[0];
   ssKey = ssKey.split('/pubhtml')[0];
-  var opmlUrl = 'http://' + window.location.hostname + '/opml?sskey=' + ssKey + '&wsid=od6';
+  //var opmlUrl = 'http://' + window.location.hostname + '/opml?sskey=' + ssKey + '&wsid=od6';
+  var opmlUrl = 'http://' + window.location.hostname + ':8080/opml?sskey=' + ssKey + '&wsid=od6';
+
 
   var opmlTitle = document.getElementById('opml-title').value;
   if (opmlTitle != '') opmlUrl += '&title=' + opmlTitle;
